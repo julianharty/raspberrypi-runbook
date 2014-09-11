@@ -1,0 +1,19 @@
+WiFi Adapters
+=============
+
+The RACHEL Raspberry Pi image is currently configured to support the Chipset of the WiPi adapter. 
+
+Useful commands
+---------------
+
+Useful files
+------------
+
+Examples
+--------
+
+
+Using different WiFi adapters.
+------------------------------
+This is key to help us deploy Raspberry Pi's using locally-sourced USB WiFi adapters. ##TODO We need to work out how to reconfigure Raspbian to support different adapters.##
+ 

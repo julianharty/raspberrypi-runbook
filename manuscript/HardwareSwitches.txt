@@ -1,0 +1,22 @@
+Extending your Pi with Hardware Switches
+========================================
+
+The Raspberry Pi doesn't include switches to turn it off, or to restart the software. However they can be added, and the Rachel software includes a utility that monitors one of the GPIO connections. This utility emintes from another opensource project https://projects.drogon.net/raspberry-pi/wiringpi/ 
+
+There are several options when adding the power switch, one is to obtain and use the following hardware http://lowpowerlab.com/atxraspi/ another is to to add a SPDT switch with one pin connected to 3.3v and the other to 0V. The central connection would be to PIN 25 (GPIO 7). We may want to add current-limiting resistors to protect the Pi's circuitry. ##TODO Add Diagram##
+
+How to use
+----------
+   * The scripts are currently preinstalled on the Rachel software image deployed on Raspberry Pi's
+
+Details
+-------
+   * The software is located in /home/pi/wiringPi
+Tips
+----
+   * Update the WiringPi library when new Models of Raspberry Pi are released. The software currently has to be compiled from source code, available from https://projects.drogon.net/raspberry-pi/wiringpi/ 
+   * To disable the functionality, place a jumper between pins 25 and 26 to provide 0V (a LOW signal) to Pin 25. The shutdown.sh script checks whether pin 25 is HIGH and issues the shutdown command once it detects pin 25 is HIGH.
+
+Links to futher information
+---------------------------
+

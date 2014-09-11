@@ -1,0 +1,13 @@
+WishList of topics to include
+=============================
+   * backing up the MySQL database used by Khan Academy Lite, 
+   * organising the data, 
+   * processing web logs, 
+   * finding and addressing errors, 
+   * configuring IP addresses so the devices can co-exist with existing networks, 
+   * hardening the devices so inquisitive users don't hack into them, 
+   * safely shutting down the OS
+   * remote administration using ssh
+   * working from a Windows computer
+   * updating the devices with upgrades,
+   * pushing (distributing) additional content

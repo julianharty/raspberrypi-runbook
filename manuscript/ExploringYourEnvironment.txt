@@ -1,0 +1,87 @@
+Exploring your environment
+==========================
+
+Discovering who(else) is on the same network
+--------------------------------------------
+Prerequistes: the nmap package needs installing (sudo apt-get install nmap on Raspberian)
+Example command:
+
+  sudo nmap -sP 192.168.1.0/24
+
+Example output
+Starting Nmap 6.00 ( http://nmap.org ) at 2014-10-20 06:13 PDT
+Nmap scan report for Dell-I5.home (192.168.1.69)
+Host is up (0.00064s latency).
+MAC Address: D4:BE:D9:CA:3E:30 (Dell)
+Nmap scan report for Inspiron-620.home (192.168.1.99)
+Host is up (0.00055s latency).
+MAC Address: D0:67:E5:1F:82:E8 (Dell)
+Nmap scan report for PXEClient-Arch-00000-UNDI-002001-ec-a8-6b-f2-24-bb.home (192.168.1.108)
+Host is up (0.00068s latency).
+MAC Address: EC:A8:6B:F2:24:BB (Elitegroup Computer Systems CO.)
+Nmap scan report for biblioteca.home (192.168.1.132)
+Host is up.
+Nmap scan report for pi-b-plus-16gb.home (192.168.1.134)
+Host is up (0.0011s latency).
+MAC Address: B8:27:EB:41:E9:FC (Raspberry Pi Foundation)
+Nmap scan report for Macbook-Air.home (192.168.1.139)
+Host is up (0.00058s latency).
+MAC Address: 58:55:CA:22:95:86 (Apple)
+Nmap scan report for lemaker.home (192.168.1.141)
+Host is up (0.00068s latency).
+MAC Address: 02:4A:0B:42:56:81 (Unknown)
+Nmap done: 256 IP addresses (7 hosts up) scanned in 7.25 seconds
+
+What have we discovered?
+* Which machine are on the same logical network (the other machines are all connected by Ethernet)
+* Their hostname, and sometimes the type of computer e.g. Apple, Dell, Raspberry Pi
+
+How can we use this information?
+* To connect to those machines
+* To review our network settings and configuration, for instance if we want to add a static IP address.
+
+Discovering your hardware using software
+----------------------------------------
+When you know what hardware you have installed, and how it's being used, you can use the information to maintain and modify the system. It may also help you to create similar systems.
+
+Logical Disks and Volumes:
+There are several commands to explore the storage. These include df (disk freespace) and fdisk (which shows the logical partitions and some details of the physical storage). Fdisk can also be used to change the configuration of the storage, here we're only concerned with learning about the storage.
+
+Example commands:
+df -h
+
+sudo fdisk -l
+
+Example output
+pi@biblioteca ~ $ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+rootfs           57G   48G  6.7G  88% /
+/dev/root        57G   48G  6.7G  88% /
+devtmpfs        212M     0  212M   0% /dev
+tmpfs            44M  504K   44M   2% /run
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs            88M     0   88M   0% /run/shm
+/dev/mmcblk0p1   56M   19M   38M  33% /boot
+
+sudo fdisk -l
+
+Disk /dev/mmcblk0: 128.7 GB, 128713752576 bytes
+4 heads, 16 sectors/track, 3928032 cylinders, total 251394048 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00014d34
+
+        Device Boot      Start         End      Blocks   Id  System
+/dev/mmcblk0p1            8192      122879       57344    c  W95 FAT32 (LBA)
+/dev/mmcblk0p2          122880   120000000    59938560+  83  Linux
+
+What have we discovered?
+* Using df -h we can see 48GB of a 57GB partition is being used. There is a temporary filesystem which is hosting various parts of the filesystem, and there is a tiny boot partition.
+* For some reason there's only 6.7GB available, just over 10% of the total partition. This leaves relatively little room for expansion e.g. if we want to add more content. Perhaps it'd be worth allocating more space?
+* Using fdisk -l we can see htere are two partitions. The first one matches the /boot partition seen in the df -h command. The second contains the main root filesystem. The total storage capacity is around 128.7GB so there's lots of space we can allocate if we choose to.
+
+How can we use this information?
+Here are several suggestions, you may have additional ideas
+* To expand volumes on the filesystem
+* To know what storage we need to buy to create a similar computer 

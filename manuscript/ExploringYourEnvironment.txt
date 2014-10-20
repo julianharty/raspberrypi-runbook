@@ -63,6 +63,17 @@ tmpfs           5.0M     0  5.0M   0% /run/lock
 tmpfs            88M     0   88M   0% /run/shm
 /dev/mmcblk0p1   56M   19M   38M  33% /boot
 
+Here's an example where we have a second SD-card mounted, and the first drive is partitioned with a separate /data partition
+rootfs          4.9G  3.9G  813M  83% /
+/dev/root       4.9G  3.9G  813M  83% /
+devtmpfs        231M     0  231M   0% /dev
+tmpfs            47M  272K   47M   1% /run
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs            94M     0   94M   0% /run/shm
+/dev/mmcblk0p1   56M  9.5M   47M  17% /boot
+/dev/mmcblk0p3  9.6G  5.3G  3.8G  59% /data
+/dev/sda2        57G   50G  4.5G  92% /media/pi_to_repair
+
 sudo fdisk -l
 
 Disk /dev/mmcblk0: 128.7 GB, 128713752576 bytes
@@ -75,6 +86,7 @@ Disk identifier: 0x00014d34
         Device Boot      Start         End      Blocks   Id  System
 /dev/mmcblk0p1            8192      122879       57344    c  W95 FAT32 (LBA)
 /dev/mmcblk0p2          122880   120000000    59938560+  83  Linux
+
 
 What have we discovered?
 * Using df -h we can see 48GB of a 57GB partition is being used. There is a temporary filesystem which is hosting various parts of the filesystem, and there is a tiny boot partition.

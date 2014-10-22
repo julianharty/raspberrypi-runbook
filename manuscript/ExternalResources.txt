@@ -1,0 +1,6 @@
+External Resources
+==================
+This small book cannot cover everything, and plenty of people write better articles than I have managed to do here. Therefore, when you have Internet access please venture to some of the following web sites where you may gleen better ideas, practices, etc.
+
+http://raspberrywebserver.com includes lots of interesting articles, including how to connect an external drive, how to create and test a cluster of Raspberry Pi Web Servers, etc. The articles are attractive and easy for me to read and follow.
+ 

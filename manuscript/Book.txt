@@ -1,4 +1,6 @@
 chapter1.txt
+ExploringYourEnvironment.txt
+ExternalResources.txt
 HardwareSwitches.txt
 WiFi.txt
 WishListOfChapters.txt

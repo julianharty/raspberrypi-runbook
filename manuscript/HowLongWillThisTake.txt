@@ -1,0 +1,18 @@
+How Long Will This Take?
+========================
+System Administration includes some tasks that can take a long time, even if they go well. And more frustratingly they can take _much_ longer with lots of wasted time and emotional energy. 
+
+To complete tasks on time and productively we may need to consider the timing and order of the various elements of the work. Precautionary checks, command chaining, etc. can all help make our work more effective and help us complete tasks sooner.
+
+Different systems, configurations, and workloads can significantly affect the timing, therefore it's worth learning the likely performance characteristics of the equipment available to you.
+
+Examples of information
+=======================
+Practice and assimilate timing data in your work to establish norms, and variations. Here are some examples of commands that provide some timing information.
+
+The time command in linux is a simple way to gather elapsed time for a task.
+
+Some commands, e.g. adb push and adb install, provide timing information e.g. 
+
+adb push sphider.zip /sdcard/rachel/db
+5627 KB/s (186278446 bytes in 32.326s)

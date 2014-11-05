@@ -2,5 +2,6 @@ chapter1.txt
 ExploringYourEnvironment.txt
 ExternalResources.txt
 HardwareSwitches.txt
+HowLongWillThisTake.txt
 WiFi.txt
 WishListOfChapters.txt
